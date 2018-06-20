@@ -26,14 +26,6 @@ begin
             , output => settings(i)
             );
     end generate gen_faders;
-    
---    f : entity work.fader(v1)
---        port map(
---        clock => clock
---      , input => level
---      , read => read
---      , output => setting
---      );
 
     gen_dimmers: for i in 0 to 7 generate
         dimmers : entity work.dimmer(linear)
@@ -43,13 +35,6 @@ begin
             , setting => settings(i)
             );
     end generate gen_dimmers;
-    
---    d : entity work.dimmer(linear)
---        port map(
---        clock => clock
---      , output => led_0
---      , setting => setting
---      );
         
     process (clock)
         variable counter : integer := 0;
